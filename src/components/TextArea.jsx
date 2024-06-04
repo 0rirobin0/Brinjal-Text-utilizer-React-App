@@ -10,6 +10,18 @@ export default function TextArea(props) {
   const setlowercase = () => {
     console.log("LowerCase button is clicked");
     setText(text.toLowerCase());
+    console.log(text);
+  };
+  const countletter = () => {
+    console.log("Count Letter");
+    alert(text.length);
+  };
+
+  const findreplace = () => {
+    let find = prompt("Find");
+    let replace = prompt("Replace");
+    setText(text.replace(find, replace));
+    console.log(text);
   };
 
   const textchange = (event) => {
@@ -36,6 +48,15 @@ export default function TextArea(props) {
         onClick={setlowercase}
       >
         Convert To lowercase
+      </button>
+
+      <button type="button" className="btn btn-primary" onClick={countletter}>
+        count
+      </button>
+
+      {/* find and replace */}
+      <button type="button" className="btn btn-secondary" onClick={findreplace}>
+        Find And Replace
       </button>
     </div>
   );
