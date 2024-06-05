@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function TextArea(props) {
-  const [text, setText] = useState("Enter text here");
+  const [text, setText] = useState("");
 
   const setuppercase = () => {
     console.log("Uppercase button is clicked");
@@ -36,6 +36,7 @@ export default function TextArea(props) {
         id="myform"
         rows="8"
         value={text}
+        placeholder="Enter Text here"
         onChange={textchange}
       ></textarea>
 
