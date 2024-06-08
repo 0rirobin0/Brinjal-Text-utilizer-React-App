@@ -2,32 +2,33 @@ import React, { useState } from "react";
 
 
 
-export default function TextArea() {
+export default function TextArea(props) {
   const [text, setText] = useState("");
   const [greet,setgreet] =useState("Have a Good Day!")
 
-  const now = new Date();
-  const hours = now.getHours();
-
-
   
   
-
+// set upper  
 
   const setuppercase = () => {
     console.log("Uppercase button is clicked");
     setText(text.toUpperCase());
   };
+  // set lower
   const setlowercase = () => {
     console.log("LowerCase button is clicked");
     setText(text.toLowerCase());
     console.log(text);
   };
+  // clear text
   const ClearText =()=>
   {
-    alert("Are you sure?")
+    alert("Are you sure?");
+    props.showAlert("danger","Your Text will be deleted!!");
     setText("");
   }
+
+  // camel case
    const camelcase =()=>
    {
     let camel =text.toLowerCase()                   
@@ -38,6 +39,7 @@ export default function TextArea() {
     .join(' '); 
     setText(camel);
    }
+  //  find and replace
   const findreplace = () => {
     let find = prompt("Find");
     find.trim();
@@ -45,16 +47,17 @@ export default function TextArea() {
     setText(text.replace(find, replace));
     console.log(text);
   };
-
+//text on change
   const textchange = (event) => {
     setText(event.target.value);
   };
-
+// copy text
   const copytext=()=>
   {
     console.log("copied!");
     var text = document.getElementById("myform")
     navigator.clipboard.writeText(text.value);
+    props.showAlert('success','copied to clipboard');
   }
 
 
@@ -70,6 +73,7 @@ export default function TextArea() {
         value={text}
         placeholder="Enter Text here"
         onChange={textchange}
+        
       ></textarea>
       <div className="botbtn">
       
