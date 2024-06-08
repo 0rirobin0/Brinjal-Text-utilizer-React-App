@@ -4,52 +4,68 @@
   padding: 0rem;
   text-align: center;
 }
+/* Dark Mode CSS */
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  transition: background-color 0.5s, color 0.5s;
+ 
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ .light-mode {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+.dark-mode {
+  background-color: #2c2c2c;
+  color: #ffffff;
+} 
 .btn-primary {
   margin: 20px;
   background-color: green;
   border: 0px;
 }
+.btn-secondary {
+  margin: 20px;
+  border: 0px;
+}
 .btn-primary:hover {
   background-color: rgb(32, 146, 32);
+}
+.clearbtn
+{
+  display: flex;
+  justify-content: end;
+  width: 75vw;
 }
 #myform {
   border: 1px solid black;
   width: 1000px;
   margin-left: 150px;
 }
+.darkmodebtn
+{
+  display: flex;
+  justify-content: space-between;
+margin: 0px 800px;
+}
+
+.nav-link
+{
+  text-decoration: none;
+  color: rgb(6, 251, 26);
+  
+}
+
+#navtext-light
+{
+color:#ffffff;
+padding: 0;
+margin: 0;
+} 
+#navtext-dark
+{
+color: #000000;
+padding: 0;
+margin: 0;
+} 

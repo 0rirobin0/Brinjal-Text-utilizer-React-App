@@ -1,15 +1,51 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState,useEffect} from "react";
+
+
 
 export default function Navbar(props) {
+
+
+  const [isDarkMode, setdarkmode] = useState(false);
+
+
+
+
+
+// onclick light
+const lightmode =()=>
+ { 
+  setdarkmode(false);
+  console.log("lightmode");
+ }
+// onclick darkmode
+const darkmode =()=>
+ {
+  setdarkmode(true);
+  console.log("darkmode");
+ }
+
+//  useeffect
+useEffect(() => {
+    
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+}, [isDarkMode]); 
+
+
+
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+
+    <nav className="navbar navbar-expand-lg"  >
+      <div className="container-fluid " >
+        <a className="navbar-brand" href="#" id={isDarkMode ? "navtext-light": "navtext-dark"}>
           <img
             src="../../public/brinjal.png"
             alt="logo"
-            srcset=""
             width="50px"
           />
           {props.title}
@@ -27,62 +63,38 @@ export default function Navbar(props) {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+            <li className="nav-item" >
+              <a className="nav-link active " aria-current="page"href="#">
+                <p  id={isDarkMode ? "navtext-light": "navtext-dark"} >Home</p>
+              </a>
+            </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                Home
+                <p id={isDarkMode ? "navtext-light": "navtext-dark"} >About</p>
               </a>
             </li>
 
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
+            
+            {/* dark mode */}
+            <li className="darkmodebtn">
+              <button type="button" className="btn btn-light"
+              onClick={lightmode}>Light</button>
+
+              <button type="button" className="btn btn-dark" onClick={darkmode}>Dark</button>
             </li>
+
           </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+
         </div>
       </div>
     </nav>
+
+
   );
 }
+
 
 Navbar.PropTypes = {
   title: PropTypes.string,

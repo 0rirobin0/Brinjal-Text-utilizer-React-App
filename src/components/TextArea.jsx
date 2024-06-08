@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+
+
 export default function TextArea(props) {
   const [text, setText] = useState("");
-
+ 
   const setuppercase = () => {
     console.log("Uppercase button is clicked");
     setText(text.toUpperCase());
@@ -12,13 +14,14 @@ export default function TextArea(props) {
     setText(text.toLowerCase());
     console.log(text);
   };
-  const countletter = () => {
-    console.log("Count Letter");
-    alert(text.length);
-  };
+  const ClearText =()=>
+  {
+    setText("");
+  }
 
   const findreplace = () => {
     let find = prompt("Find");
+    find.trim();
     let replace = prompt("Replace");
     setText(text.replace(find, replace));
     console.log(text);
@@ -29,36 +32,63 @@ export default function TextArea(props) {
   };
 
   return (
-    <div className="mb-3">
+    <>
+    <div className="mb-3 ">
       <h1>{props.texttitle}</h1>
       <textarea
-        className="form-control"
+        className="form-control "
         id="myform"
         rows="8"
         value={text}
         placeholder="Enter Text here"
         onChange={textchange}
       ></textarea>
+      <div className="clearbtn">
+         {/* clear text */}
+       <button type="button" className="btn btn-danger my-1" onClick={ClearText}>
+        Clear Text
+      </button>
+      </div>
+      
 
+     {/* Summary Area */}
+
+     <div className="container my-3">
+      
+       <p>{text.length ==0 ? 0 : text.split(" ").length} words and {text.length} characters</p>
+
+     </div>
+
+
+
+
+      {/* Button */}
+      {/* convert to upper case */}
       <button type="button" className="btn btn-primary" onClick={setuppercase}>
         Convert To Uppercase
       </button>
+
+
+      {/* convert to lower case */}
+
       <button
         type="button"
-        className="btn btn-secondary"
+        className="btn btn-primary"
         onClick={setlowercase}
       >
         Convert To lowercase
       </button>
 
-      <button type="button" className="btn btn-primary" onClick={countletter}>
-        count
-      </button>
 
       {/* find and replace */}
-      <button type="button" className="btn btn-secondary" onClick={findreplace}>
+      <button type="button" className="btn btn-primary" onClick={findreplace}>
         Find And Replace
       </button>
+
+
     </div>
+    
+
+    </>
   );
 }
