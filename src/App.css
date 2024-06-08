@@ -32,11 +32,15 @@ body {
 .btn-primary:hover {
   background-color: rgb(32, 146, 32);
 }
-.clearbtn
+.botbtn
 {
   display: flex;
   justify-content: end;
   width: 75vw;
+}
+.botbtn img
+{
+  cursor: pointer;
 }
 #myform {
   border: 1px solid black;
@@ -47,7 +51,7 @@ body {
 {
   display: flex;
   justify-content: space-between;
-margin: 0px 800px;
+  margin: 0px 800px;
 }
 
 .nav-link

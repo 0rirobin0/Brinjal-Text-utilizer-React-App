@@ -7,7 +7,7 @@ function App() {
     <>
    
       <Navbar title="BRINJAL" />
-      <TextArea texttitle="Good Day!" />
+      <TextArea  />
       
     </>
   );

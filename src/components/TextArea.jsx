@@ -2,9 +2,18 @@ import React, { useState } from "react";
 
 
 
-export default function TextArea(props) {
+export default function TextArea() {
   const [text, setText] = useState("");
- 
+  const [greet,setgreet] =useState("Have a Good Day!")
+
+  const now = new Date();
+  const hours = now.getHours();
+
+
+  
+  
+
+
   const setuppercase = () => {
     console.log("Uppercase button is clicked");
     setText(text.toUpperCase());
@@ -16,9 +25,19 @@ export default function TextArea(props) {
   };
   const ClearText =()=>
   {
+    alert("Are you sure?")
     setText("");
   }
-
+   const camelcase =()=>
+   {
+    let camel =text.toLowerCase()                   
+    .split(' ')                         
+    .map((word, index) =>                // Map over each word
+    word.charAt(0).toUpperCase() + word.slice(1) // Capitalize the first letter and add the rest of the word
+    )
+    .join(' '); 
+    setText(camel);
+   }
   const findreplace = () => {
     let find = prompt("Find");
     find.trim();
@@ -31,10 +50,19 @@ export default function TextArea(props) {
     setText(event.target.value);
   };
 
+  const copytext=()=>
+  {
+    console.log("copied!");
+    var text = document.getElementById("myform")
+    navigator.clipboard.writeText(text.value);
+  }
+
+
+
   return (
     <>
     <div className="mb-3 ">
-      <h1>{props.texttitle}</h1>
+      <h1>{greet}</h1>
       <textarea
         className="form-control "
         id="myform"
@@ -43,8 +71,13 @@ export default function TextArea(props) {
         placeholder="Enter Text here"
         onChange={textchange}
       ></textarea>
-      <div className="clearbtn">
-         {/* clear text */}
+      <div className="botbtn">
+      
+         {/* copy text */}
+         <img className="my-2 mx-1" src="../../public/copy.png" alt="Copy Text"  height="30px" onClick={copytext}
+         />
+
+         {/* clear btn */}
        <button type="button" className="btn btn-danger my-1" onClick={ClearText}>
         Clear Text
       </button>
@@ -77,6 +110,17 @@ export default function TextArea(props) {
         onClick={setlowercase}
       >
         Convert To lowercase
+      </button>
+
+
+      {/* convert to Camel case */}
+
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={camelcase}
+      >
+        Convert To CamelCase
       </button>
 
 
