@@ -42,9 +42,9 @@ useEffect(() => {
 
     <nav className="navbar navbar-expand-lg"  >
       <div className="container-fluid " >
-        <a className="navbar-brand" href="#" id={isDarkMode ? "navtext-light": "navtext-dark"}>
+        <a className="navbar-brand" href="/" id={isDarkMode ? "navtext-light": "navtext-dark"}>
           <img
-            src="../../public/brinjal.png"
+            src="/brinjal.png"
             alt="logo"
             width="50px"
           />
@@ -66,12 +66,12 @@ useEffect(() => {
         <div className="collapse navbar-collapse " id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
             <li className="nav-item" >
-              <a className="nav-link active " aria-current="page"href="#">
+              <a className="nav-link active " aria-current="page"href="/">
                 <p  id={isDarkMode ? "navtext-light": "navtext-dark"} >Home</p>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/about">
                 <p id={isDarkMode ? "navtext-light": "navtext-dark"} >About</p>
               </a>
             </li>
